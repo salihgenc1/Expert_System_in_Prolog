@@ -54,7 +54,7 @@ pet_trainability(high).
 pet_trainability(moderate).
 pet_trainability(low).
 
-% This part of the facts for querries, not for the diagnose process ↓↓↓
+% This part contains facts for queries, not for the diagnostic process. ↓↓↓
 
 % << DOG >> features:
 pet_class(dog,mammalia).
@@ -325,3 +325,41 @@ Trainability        = moderate.
 
 % QUERIES ------------------------------------------------------------------------------
 
+/*
+
+Below are various examples for queries that you can execute from the console
+ 
+What are pet types:
+pet_types(Pet).
+
+What are the features:
+pet_class(Class).
+pet_covering(Covering).
+pet_diet(Diet).
+pet_habitat(Habitat).
+pet_sleep_pattern(SleepPattern).
+pet_trainability(Trainability).
+
+
+pet_class(X,mammalia).              -> Pets with a biological class of mammalia
+pet_covering(X,scales).             -> Pets with scales as a body covering
+pet_diet(X,herbivorous).            -> Pets with a herbivorous diet
+pet_habitat(X,aquatic).             -> Pets with an aquatic habitat
+pet_sleep_pattern(X,crepuscular).	-> Pets with a crepuscular sleep pattern.
+pet_trainability(X,high).			-> Pets with a high trainability level.
+
+
+pet_class(axolotl,X).			    -> Biological class of the axolotl
+pet_covering(hedgehog,X)            -> Body covering of the hedgehog
+pet_diet(gecko,X)                   -> Diet of the gecko
+pet_habitat(turtle,X)				-> Habitat of the turtle
+pet_sleep_pattern(cat,X)			-> Sleep pattern of the cat
+pet_trainability(ferret,X)			-> Trainability level of the ferret
+
+
+pet_class(X,Y)		    	-> All pets(X variable) and their biological classes(Y)
+pet_habitat(Pet,Habitat)	-> All pets(Pet) and their habitats(Habitat)
+We can perform this query for all features.
+
+
+*/
