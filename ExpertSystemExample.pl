@@ -355,6 +355,7 @@ pet_diet(Diet).
 pet_habitat(Habitat).
 pet_sleep_pattern(SleepPattern).
 pet_trainability(Trainability).
+pet_sociability_score(SociabilityScore).
 
 
 pet_class(X,mammalia).                -> Pets with a biological class of mammalia
