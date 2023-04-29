@@ -54,6 +54,11 @@ pet_trainability(high).
 pet_trainability(moderate).
 pet_trainability(low).
 
+
+% Sociability refers to how social or friendly a particular pet species is towards humans or other animals on a scale of 1 to 10.
+pet_sociability_score('Sociability score from 1 to 10').
+
+
 % This part contains facts for queries, not for the diagnostic process. ↓↓↓
 
 % << DOG >> features:
@@ -64,6 +69,7 @@ pet_diet(dog,omnivorous).
 pet_habitat(dog,terrestial).
 pet_sleep_pattern(dog,diurnal).
 pet_trainability(dog,high).
+pet_sociability_score(dog,9).
 
 
 % << CAT >> features:
@@ -75,6 +81,7 @@ pet_habitat(cat,terrestial).
 pet_sleep_pattern(cat,crepuscular).
 pet_sleep_pattern(cat,nocturnal).
 pet_trainability(cat,moderate).
+pet_sociability_score(cat,7).
 
 
 % << BIRD >> features:
@@ -88,6 +95,7 @@ pet_sleep_pattern(bird,crepuscular).
 pet_sleep_pattern(bird,nocturnal).
 pet_sleep_pattern(bird,diurnal).
 pet_trainability(bird,low).
+pet_sociability_score(bird,6).
 
 
 % << RABBIT >> features:
@@ -99,6 +107,7 @@ pet_habitat(rabbit,terrestial).
 pet_sleep_pattern(rabbit,crepuscular).
 pet_sleep_pattern(rabbit,nocturnal).
 pet_trainability(rabbit,moderate).
+pet_sociability_score(rabbit,8).
 
 
 % << FISH >> features:
@@ -113,6 +122,7 @@ pet_sleep_pattern(fish,crepuscular).
 pet_sleep_pattern(fish,nocturnal).
 pet_sleep_pattern(fish,diurnal).
 pet_trainability(fish,low).
+pet_sociability_score(fish,3).
 
 
 % << HAMSTER >> features:
@@ -123,6 +133,7 @@ pet_diet(hamster,omnivorous).
 pet_habitat(hamster,terrestial).
 pet_sleep_pattern(hamster,nocturnal).
 pet_trainability(hamster,moderate).
+pet_sociability_score(hamster,5).
 
 
 % << GECKO >> features:
@@ -133,6 +144,7 @@ pet_diet(gecko,insectivorous).
 pet_habitat(gecko,terrestial).
 pet_sleep_pattern(gecko,nocturnal).
 pet_trainability(gecko,low).
+pet_sociability_score(gecko,4).
 
 
 % << TURTLE >> features:
@@ -145,6 +157,7 @@ pet_habitat(turtle,aquatic).
 pet_sleep_pattern(turtle,nocturnal).
 pet_sleep_pattern(turtle,diurnal).
 pet_trainability(turtle,low).
+pet_sociability_score(,3).
 
 
 % << FERRET >> features:
@@ -156,6 +169,7 @@ pet_habitat(ferret,terrestial).
 pet_sleep_pattern(ferret,crepuscular).
 pet_sleep_pattern(ferret,nocturnal).
 pet_trainability(ferret,high).
+pet_sociability_score(ferret,7).
 
 
 % << AXOLOTL >> features:
@@ -166,17 +180,19 @@ pet_diet(axolotl,carnivorous).
 pet_habitat(axolotl,aquatic).
 pet_sleep_pattern(axolotl,nocturnal).
 pet_trainability(axolotl,low).
+pet_sociability_score(axolotl,3).
 
 
 % << HEDGEHOG >> features:
-pet_class(hedgehog,mammalia).
-pet_lifespan(hedgehog,'3-8 years').
-pet_covering(hedgehog,spines).
-pet_diet(hedgehog,insectivorous).
-pet_habitat(hedgehog,terrestial).
-pet_sleep_pattern(hedgehog,nocturnal).
-pet_trainability(hedgehog,moderate).
-
+% There is another way to do this, there is another writing form;
+pet_feature(hedgehog,class,mammalia).
+pet_feature(hedgehog,lifespan,'3-8 years').
+pet_feature(hedgehog,covering,spines).
+pet_feature(hedgehog,diet,insectivorous).
+pet_feature(hedgehog,habitat,terrestial).
+pet_feature(hedgehog,sleep_pattern,nocturnal).
+pet_feature(hedgehog,trainability,moderate).
+pet_feature(hedgehog,sociability_score,6).
 
 % QUESTIONS ---------------------------------------------------------------------------
 /* 
@@ -341,25 +357,55 @@ pet_sleep_pattern(SleepPattern).
 pet_trainability(Trainability).
 
 
-pet_class(X,mammalia).              -> Pets with a biological class of mammalia
-pet_covering(X,scales).             -> Pets with scales as a body covering
-pet_diet(X,herbivorous).            -> Pets with a herbivorous diet
-pet_habitat(X,aquatic).             -> Pets with an aquatic habitat
-pet_sleep_pattern(X,crepuscular).	-> Pets with a crepuscular sleep pattern.
-pet_trainability(X,high).			-> Pets with a high trainability level.
+pet_class(X,mammalia).                -> Pets with a biological class of mammalia
+pet_covering(X,scales).               -> Pets with scales as a body covering
+pet_diet(X,herbivorous).              -> Pets with a herbivorous diet
+pet_habitat(X,aquatic).               -> Pets that live in aquatic habitat
+pet_sleep_pattern(X,crepuscular).     -> Pets with a crepuscular sleep pattern
+pet_trainability(X,high).             -> Pets with high trainability level
+pet_sociability_score(PetName,7).     -> Pets with a sociability score of 7
+pet_feature(X,diet,insectivorous).    -> Pets with a insectivorous diet (Querry for the other writing form)
+
+pet_sociability_score(PetName,Score), Score >= 5.    -> Pets with a sociability score of 5 or higher(PetName) and their score(Score)
+pet_sociability_score(PetName,Score), Score < 5.     -> Pets with a sociability score of less than 5(PetName) and their score(Score)
+pet_feature(X,sociability_score,Value), Value =< 6.  -> Pets with a sociability score of 6 or less (Querry for the other writing form)
 
 
-pet_class(axolotl,X).			    -> Biological class of the axolotl
-pet_covering(hedgehog,X)            -> Body covering of the hedgehog
-pet_diet(gecko,X)                   -> Diet of the gecko
-pet_habitat(turtle,X)				-> Habitat of the turtle
-pet_sleep_pattern(cat,X)			-> Sleep pattern of the cat
-pet_trainability(ferret,X)			-> Trainability level of the ferret
+pet_class(axolotl,X).               -> Biological class of the axolotl
+pet_feature(hedgehog,covering,X).   -> Body covering of the hedgehog (Querry for the other writing form)
+pet_diet(gecko,X).                  -> Diet of the gecko
+pet_habitat(turtle,X).              -> Habitat of the turtle
+pet_sleep_pattern(cat,X).           -> Sleep pattern of the cat
+pet_trainability(ferret,X).         -> Trainability level of the ferret
 
 
-pet_class(X,Y)		    	-> All pets(X variable) and their biological classes(Y)
-pet_habitat(Pet,Habitat)	-> All pets(Pet) and their habitats(Habitat)
-We can perform this query for all features.
+pet_class(X,Y).                     -> All pets(X variable) and their biological classes(Y)
+pet_habitat(Pet,Habitat).           -> All pets(Pet) and their habitats(Habitat)
+pet_lifespan(Pet,Lifespan).         -> All pets (Pet) and their lifespans
+We can perform this queries for all features.
 
+
+pet_habitat(Pet,Habitat), Habitat \= terrestial.  -> All pets with a non-terrestial habitat(Pet) and their habitat(Habitat)
+pet_covering(Pet,Covering), Covering \= fur.      -> All pets that do not have fur as a body covering and their body coverings
+pet_diet(Pet,Diet), Diet \= carnivorous.          -> All pets with a non-carnivorous diet(Pet) and their diets
+
+
+pet_covering(X,fur), pet_sleep_pattern(X,nocturnal).    -> The pets with a nocturnal sleep pattern and fur as a body covering
+pet_class(X,Y), pet_trainability(X,moderate).           -> The pets with moderate trainability level (X) and their biological classes(Y) 
+pet_habitat(X,aquatic), pet_diet(X,Y).                  -> The pets that live in aquatic habitat(X) and their diets(Y)
+pet_lifespan(X,Y), pet(X,diurnal).                      -> The pets with a diurnal sleep pattern(X) and their lifespans(Y)
+
+
+The pets with a carnivorous diet and biological class of Mammalia (X) and their trainability level (Y):
+pet_trainability(X,Y), pet_class(X,mammalia), pet_diet(X,carnivorous).
+
+The pets with biological class of reptilia and scales as a body covering (X) and their lifespan(Y):
+pet_lifespan(X,Y), pet_covering(X,scales), pet_class(X,reptilia).
+
+The pets with biological class of mammalia(X), their covering(Y) and their sociability score(Z):
+pet_feature(X,covering,Y), pet_feature(X,sociability_score,Z), pet_feature(X,class,mammalia).
+
+The pets with high trainability level(X), their habitat(Y) and their biological classes(Z):
+pet_class(X,Z), pet_habitat(X,Y), pet_trainability(X,high).
 
 */
