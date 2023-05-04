@@ -16,11 +16,11 @@
   
 ![Information_Table](Images/Information_Table.png)  
  
-This expert system example consists of four parts: facts, questions, rules, and queries.  
-**Facts:** This section contains the facts of the system. It is where the feature values of pets, pet types, and their corresponding feature values are defined in the code.
-**Questions:**  This section prompts the user with questions and, based on their answers, identifies the pet type using the rules.
-**Rules:** This section contains the rules for identifying pet types based on their features in the table. When diagnosing, the expert system evaluates the user's answers based on these rules to make a diagnosis.
-**Queries:** This section provides query examples that can be executed from the console. The queries defined here can be answered by the expert system based on the facts defined in the system. 
+This expert system example consists of four parts: facts, questions, rules, and queries.    
+**Facts:** This section contains the facts of the system. It is where the feature values of pets, pet types, and their corresponding feature values are defined in the code.  
+**Questions:**  This section prompts the user with questions and, based on their answers, identifies the pet type using the rules.  
+**Rules:** This section contains the rules for identifying pet types based on their features in the table. When diagnosing, the expert system evaluates the user's answers based on these rules to make a diagnosis.  
+**Queries:** This section provides query examples that can be executed from the console. The queries defined here can be answered by the expert system based on the facts defined in the system.  
 
 Below are some examples of queries that have been executed in the console:
 
