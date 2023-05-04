@@ -15,8 +15,11 @@
    Due to the lack of an expert, this expert system example uses the following table as a knowledge base (The information in the table does not necessarily reflect reality).
   
 ![Information_Table](Images/Information_Table.png)  
- 
+
+The subject of this project is to develop an expert system example that can diagnose types of pets. This expert system can diagnose 11 different pet types in the table based on their feature values. It asks the user questions about these features and compares the answers with the rules written according to the required features of each diagnosed pet type. As a result of these processes, if the pet type that the user has matches with one of the pet types known by the expert system, it diagnoses which pet type it is, otherwise it returns false.  
+
 This expert system example consists of four parts: facts, questions, rules, and queries.    
+  
 **Facts:** This section contains the facts of the system. It is where the feature values of pets, pet types, and their corresponding feature values are defined in the code.  
 **Questions:**  This section prompts the user with questions and, based on their answers, identifies the pet type using the rules.  
 **Rules:** This section contains the rules for identifying pet types based on their features in the table. When diagnosing, the expert system evaluates the user's answers based on these rules to make a diagnosis.  
