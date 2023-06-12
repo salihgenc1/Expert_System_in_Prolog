@@ -16,7 +16,7 @@
   
 ![Information_Table](Images/Information_Table.png)  
 
-The subject of this project is to develop an expert system example that can diagnose types of pets. This expert system can diagnose 11 different pet types in the table based on their feature values. It asks the user questions about these features and compares the answers with the rules written according to the required features of each diagnosed pet type. As a result of these processes, if the pet type that the user has matches with one of the pet types known by the expert system, it diagnoses which pet type it is, otherwise it returns false.  
+The subject of this project is to develop an expert system example that can diagnose types of pets. This expert system can diagnose 11 different pet types in the table based on their feature values. It asks to the user questions about these features and compares the answers with the rules written according to the required features of each pet type. As a result of these processes, if the pet type that the user has matches with one of the pet types known by the expert system, it diagnoses which pet type it is, otherwise it returns 'false'.  
 
 This expert system example consists of four parts: facts, questions, rules and queries.    
   
